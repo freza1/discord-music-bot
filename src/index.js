@@ -11,7 +11,43 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command);
 }
 
-client.once('ready', () => console.log('Mio is Online!'));
+client.on('ready', () => {
+console.log('Mio is online!');
+   
+   client.user.setPresence({ activity: { name: 'Mio eat borgar' }, status: 'idle' })
+  .then(console.log)
+  .catch(console.error);
+
+   client.user.setActivity('Mio eat borgar', { 
+     type: 'WATCHING',
+     details: "Mio is vigorously eating that borgar",
+     emoji: 'hamburger'
+      })
+  .then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
+  .catch(console.error);
+
+   /*
+   client.user.setActivity(`this won't appear in the bot's custom status!`, {type: 4})
+   */
+
+   // --------
+   
+   /* client.user.setStatus('online')
+    client.user.setActivity({
+        game: {
+            name: 'Use f!help' ,
+            type: "Streaming",
+            url: "https://discordapp.com/"
+        }
+    }); */
+});
+
+/*
+client.once('ready', () =>  
+  
+  console.log('Mio is Online!'))
+  bot.user.setActivity('Playing Bass'); */
+
 client.on('message', message => {
 	if (!message.content.startsWith(client.config.prefix) || message.author.bot) return;
 	const args = message.content.slice(client.config.prefix.length).split(/ +/);
@@ -48,4 +84,16 @@ client.on('message', message => {
 	}
 });
 
-client.login(client.config.token);
+// Don't Change the above code//
+
+ client.login("NzQwOTU4ODcxOTU0MjYwMDU5.XywluQ.9_8_LlUF3hHUhvzNTqTnG-kV8sk")
+
+
+/* client.on('ready', () => {
+    // #3
+    console.log("Logged in.");
+    client.login("token");
+});
+
+// #2
+client.user.setPresence('test', { type: 'PLAYING' }); */

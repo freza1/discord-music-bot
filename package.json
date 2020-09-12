@@ -16,6 +16,7 @@
 		"ffmpeg": "0.0.4",
 		"ffmpeg-static": "^4.2.7",
 		"node": "^14.8.0",
+		"node.js": "0.0.1-security",
 		"opusscript": "0.0.7",
 		"winston": "^3.3.3",
 		"ytdl-core": "^3.2.2"
